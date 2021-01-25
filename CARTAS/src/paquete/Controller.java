@@ -69,7 +69,7 @@ public void click1(MouseEvent event){
     turno();
 }
 
-    public void click2(ActionEvent event){
+    public void click2(MouseEvent event){
 
         if(r2.isSelected()){
             r2.setSelected(false);
@@ -79,7 +79,7 @@ public void click1(MouseEvent event){
         turno();
     }
 
-    public void click3(ActionEvent event){
+    public void click3(MouseEvent event){
 
         if(r3.isSelected()){
             r3.setSelected(false);
@@ -88,7 +88,7 @@ public void click1(MouseEvent event){
         }
         turno();
     }
-    public void click4(ActionEvent event){
+    public void click4(MouseEvent event){
 
         if(r4.isSelected()){
             r4.setSelected(false);
@@ -97,7 +97,7 @@ public void click1(MouseEvent event){
         }
         turno();
     }
-    public void click5(ActionEvent event){
+    public void click5(MouseEvent event){
 
         if(r5.isSelected()){
             r5.setSelected(false);
@@ -106,7 +106,7 @@ public void click1(MouseEvent event){
         }
         turno();
     }
-    public void click6(ActionEvent event){
+    public void click6(MouseEvent event){
 
         if(r6.isSelected()){
             r6.setSelected(false);
@@ -115,7 +115,7 @@ public void click1(MouseEvent event){
         }
         turno();
     }
-    public void click7(ActionEvent event){
+    public void click7(MouseEvent event){
 
         if(r7.isSelected()){
             r7.setSelected(false);
@@ -125,7 +125,7 @@ public void click1(MouseEvent event){
         turno();
     }
 
-    public void click8(ActionEvent event){
+    public void click8(MouseEvent event){
 
         if(r8.isSelected()){
             r8.setSelected(false);
