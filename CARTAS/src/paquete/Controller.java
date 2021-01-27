@@ -14,6 +14,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
@@ -180,27 +181,17 @@ public class Controller implements Initializable {
     @FXML
     public void btnJugar(ActionEvent event) throws Exception {
     	Stage primaryStage=new Stage();
-    	try {
-    		
-    		/*Parent root = FXMLLoader.load(getClass().getResource("Partida.fxml"));
-    	    primaryStage.setTitle("JUGAR");
-    	    primaryStage.setScene(new Scene(root, 1300, 830));
-    	    primaryStage.setResizable(false);
-    	    primaryStage.show();*/
-    		
-    		Parent root = FXMLLoader.load(getClass().getResource("Partida.fxml"));
-    		Scene scene = new Scene(root,600,600);
-    		primaryStage.setScene(scene);
-    		primaryStage.setTitle("JUGAR");
-    		primaryStage.show();
-    		Node source = (Node) event.getSource();
-    		Stage stage = (Stage) source.getScene().getWindow();
-    		stage.close();
-		
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    		throw e;
-    	}
+		((Node) event.getSource()).getScene().getWindow().hide();
+		try {
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Partida.fxml"));
+			Scene scene = new Scene(root,900,670);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+		} catch(Exception v) {
+			v.printStackTrace();
+		}
 	    
     }
 }
