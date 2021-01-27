@@ -2,7 +2,11 @@ package paquete;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
@@ -10,8 +14,11 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,13 +60,38 @@ public class Controller implements Initializable {
     Button btnCarta7;
     @FXML
     Button btnCarta8;
-
-
+    @FXML 
+    Button btnVolumen;
+    @FXML
+    AudioClip audio = new AudioClip("file:sonido/audio.mp3");
+    @FXML
+    Button btnJugar;
+    
+   
     public void initialize(URL location, ResourceBundle resources) {
-
+    	audio.play();
+    	URL url = getClass().getResource("/img/altavoz.png");
+    	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
+    	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
+    }
+    
+    @FXML
+    public void volumen(ActionEvent e) {
+    	if(audio.isPlaying()) {
+    		audio.stop();
+    		URL url = getClass().getResource("/img/altavozoff.png");
+        	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
+        	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
+    	}else {
+    		audio.play();
+    		URL url = getClass().getResource("/img/altavoz.png");
+        	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
+        	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
+    	}
+    	
     }
 
-public void click1(MouseEvent event){
+    public void click1(MouseEvent event){
 
     if(r1.isSelected()){
         r1.setSelected(false);
@@ -67,7 +99,7 @@ public void click1(MouseEvent event){
         r1.setSelected(true);
     }
     turno();
-}
+    }
 
     public void click2(MouseEvent event){
 
@@ -144,5 +176,31 @@ public void click1(MouseEvent event){
             btnAtacar.setDisable(true);
         }
     }
-
+    
+    @FXML
+    public void btnJugar(ActionEvent event) throws Exception {
+    	Stage primaryStage=new Stage();
+    	try {
+    		
+    		/*Parent root = FXMLLoader.load(getClass().getResource("Partida.fxml"));
+    	    primaryStage.setTitle("JUGAR");
+    	    primaryStage.setScene(new Scene(root, 1300, 830));
+    	    primaryStage.setResizable(false);
+    	    primaryStage.show();*/
+    		
+    		Parent root = FXMLLoader.load(getClass().getResource("Partida.fxml"));
+    		Scene scene = new Scene(root,600,600);
+    		primaryStage.setScene(scene);
+    		primaryStage.setTitle("JUGAR");
+    		primaryStage.show();
+    		Node source = (Node) event.getSource();
+    		Stage stage = (Stage) source.getScene().getWindow();
+    		stage.close();
+		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    		throw e;
+    	}
+	    
+    }
 }
