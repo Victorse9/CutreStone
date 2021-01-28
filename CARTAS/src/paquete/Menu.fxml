@@ -6,20 +6,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="830.0" prefWidth="1300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="paquete.Controller">
+<AnchorPane prefHeight="830.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paquete.Controller">
    <children>
       <Label layoutX="527.0" layoutY="36.0" text="CUTRESTONE">
          <font>
             <Font name="Yu Gothic UI Semibold" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="597.0" layoutY="395.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="113.0" text="COLECCION">
+      <Button layoutX="597.0" layoutY="395.0" mnemonicParsing="false" onAction="#mostrarCartas" prefHeight="40.0" prefWidth="113.0" text="COLECCION">
          <font>
             <Font name="Cooper Black" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="595.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnJugar" prefHeight="40.0" prefWidth="113.0" text="JUGAR">
+      <Button layoutX="595.0" layoutY="311.0" mnemonicParsing="false" onAction="#jugar" prefHeight="40.0" prefWidth="113.0" text="JUGAR">
          <font>
             <Font name="Cooper Black" size="12.0" />
          </font>
