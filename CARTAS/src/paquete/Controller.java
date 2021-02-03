@@ -59,6 +59,7 @@ public class Controller{
     
     
     public void mostrarCartas(ActionEvent event) {
+    	((Node)event.getSource()).getScene().getWindow().hide();
     	try {
 			Stage primaryStage= new Stage();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MostrarCartas.fxml"));
@@ -72,6 +73,7 @@ public class Controller{
     }
     
     public void jugar(ActionEvent event) {
+    	((Node)event.getSource()).getScene().getWindow().hide();
     	try {
 			Stage primaryStage= new Stage();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Partida.fxml"));

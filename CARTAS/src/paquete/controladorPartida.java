@@ -1,10 +1,21 @@
 package paquete;
 
+import java.util.Optional;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 
 public class controladorPartida {
 
@@ -127,6 +138,32 @@ public class controladorPartida {
 	            btnAtacar.setDisable(false);
 	        }else{
 	            btnAtacar.setDisable(true);
+	        }
+	    }
+	    
+	    public void btnVolver(ActionEvent e) {
+	    	
+	    	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+	        alert.setHeaderText(null);
+	        alert.setTitle("Abandonar");
+	        alert.setContentText("¿Deseas abandonar partida?");
+	        
+	        Optional<ButtonType> result = alert.showAndWait();
+	        
+	        if (result.get() == ButtonType.OK){
+	        	try {
+		    		((Node)e.getSource()).getScene().getWindow().hide();
+					Stage primaryStage= new Stage();
+					AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Menu.fxml"));
+					Scene scene = new Scene(root,1300,830);
+					primaryStage.setScene(scene);
+					primaryStage.setResizable(false);
+					primaryStage.show();
+				} catch(Exception ex) {
+					ex.printStackTrace();
+				}
+	        } else {
+	            
 	        }
 	    }
 }
