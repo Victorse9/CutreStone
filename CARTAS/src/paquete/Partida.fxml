@@ -82,5 +82,6 @@
             <Image url="@../../../../../Desktop/CARTAS_BUENAS_APP/xokas.png" />
          </image>
       </ImageView>
+      <Button layoutX="1185.0" layoutY="747.0" mnemonicParsing="false" onAction="#btnVolver" prefHeight="71.0" prefWidth="96.0" text="VOLVER" />
    </children>
 </AnchorPane>
