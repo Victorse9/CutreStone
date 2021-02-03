@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 
+import conexion.Consulta;
+
 public class Main extends Application {
 
     @Override
@@ -19,7 +21,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1300, 830));
         primaryStage.setResizable(false);
         primaryStage.show();
-
     }
 
 
