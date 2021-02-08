@@ -1,16 +1,10 @@
 package paquete;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
-
-import java.awt.*;
-
-import conexion.Consulta;
 
 public class Main extends Application {
 

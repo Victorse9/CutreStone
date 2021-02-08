@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller{
+public class ControllerMenu {
 
     @FXML 
     Button btnVolumen;
@@ -35,7 +35,7 @@ public class Controller{
    
     public void initialize() {
     	audio.play();
-    	URL url = getClass().getResource("/img/altavoz.png");
+    	URL url = getClass().getResource("/complementos/altavoz.png");
     	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
     	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
     }
@@ -44,12 +44,12 @@ public class Controller{
     public void volumen(ActionEvent e) {
     	if(audio.isPlaying()) {
     		audio.stop();
-    		URL url = getClass().getResource("/img/altavozoff.png");
+    		URL url = getClass().getResource("/complementos/altavozoff.png");
         	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
         	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
     	}else {
     		audio.play();
-    		URL url = getClass().getResource("/img/altavoz.png");
+    		URL url = getClass().getResource("/complementos/altavoz.png");
         	Image imagenAltavoz = new Image(url.toString(),70,80,false,true);
         	btnVolumen.setGraphic((new ImageView(imagenAltavoz)));
     	}
@@ -75,6 +75,7 @@ public class Controller{
     public void jugar(ActionEvent event) {
     	((Node)event.getSource()).getScene().getWindow().hide();
     	try {
+    		audio.stop();
 			Stage primaryStage= new Stage();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Partida.fxml"));
 			Scene scene = new Scene(root,1300,830);
